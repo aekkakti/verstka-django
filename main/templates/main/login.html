@@ -1,0 +1,14 @@
+{% extends 'layout/basic.html' %}
+{% block content %}
+{% if user.is_authenticated %}
+    <h2>Вы уже авторизовались в систему!</h2>
+{% else %}
+    <div class="container">
+        <form method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit">Войти</button>
+        </form>
+    </div>
+{% endif %}
+{% endblock %}

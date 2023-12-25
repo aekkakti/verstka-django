@@ -1,0 +1,17 @@
+{% extends 'layout/basic.html' %}
+{% block content %}
+{% if user.is_authenticated %}
+
+<div class="container">
+    <h2>Добавление товара</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button class="btn btn-outline-success" type="submit">Создать товар</button>
+    </form>
+</div>
+
+{% else %}
+    <h2>Для того, чтобы создать товар, необходимо авторизоваться!</h2>
+{% endif %}
+{% endblock %}

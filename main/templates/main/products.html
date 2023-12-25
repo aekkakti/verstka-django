@@ -1,0 +1,15 @@
+{% extends 'layout/basic.html' %}
+{% block content %}
+{% if products %}
+    {% for product in products %}
+        <div class="container">
+        <h3><b>Название товара: </b>{{ product.name }}</h3>
+        <p><b>Описание товара: </b>{{ product.description }}</p>
+            <b>Изображение товара: </b> <img src="{{product.photo.url}}" width="300px" height="300px"> <br><br>
+            <a href="add/{{product.id}}">Добавить продукт</a> <br><br><br>
+        </div>
+    {% endfor %}
+{% else %}
+<h2>На данный момент товары отсутствуют!</h2>
+{% endif %}
+{% endblock %}
